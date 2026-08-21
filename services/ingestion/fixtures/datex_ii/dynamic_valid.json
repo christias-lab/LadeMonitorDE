@@ -1,0 +1,22 @@
+{
+  "d2LogicalModel": {
+    "payloadPublication": {
+      "publicationTime": "2026-07-29T12:00:00Z",
+      "energyInfrastructureStatus": [
+        {
+          "connectorId": "DE*LPD*E000001*1",
+          "status": "available",
+          "lastUpdated": "2026-07-29T11:59:30Z"
+        },
+        {
+          "connectorId": "DE*LPD*E000001*2",
+          "status": "occupied"
+        },
+        {
+          "connectorId": "DE*LPD*E000001*3",
+          "status": "outOfService"
+        }
+      ]
+    }
+  }
+}

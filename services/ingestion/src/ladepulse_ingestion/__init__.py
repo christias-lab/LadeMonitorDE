@@ -1,0 +1,1 @@
+"""LadePulse ingestion service."""

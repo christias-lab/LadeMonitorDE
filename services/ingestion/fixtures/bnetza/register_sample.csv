@@ -1,0 +1,13 @@
+Ladesäulenregister Bundesnetzagentur;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Hinweis:;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Testfixture;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Letzte Aktualisierung vom: 28.07.2026;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+Allgemeine Informationen;;;;;;;;;;;;;;;;;;;;;;;1. Ladepunkt;;;;2. Ladepunkt;;;;3. Ladepunkt;;;;4. Ladepunkt;;;;5. Ladepunkt;;;;6. Ladepunkt;;;
+Ladeeinrichtungs-ID;Betreiber;Anzeigename (Karte);Status;Art der Ladeeinrichtung;Anzahl Ladepunkte;Nennleistung Ladeeinrichtung [kW];Inbetriebnahmedatum;Straße;Hausnummer;Adresszusatz;Postleitzahl;Ort;Kreis/kreisfreie Stadt;Bundesland;Breitengrad;Längengrad;Standortbezeichnung;Informationen zum Parkraum;Bezahlsysteme;Öffnungszeiten;Öffnungszeiten: Wochentage;Öffnungszeiten: Tageszeiten;Steckertypen1;Nennleistung Stecker1;EVSE-ID1;Public Key1;Steckertypen2;Nennleistung Stecker2;EVSE-ID2;Public Key2;Steckertypen3;Nennleistung Stecker3;EVSE-ID3;Public Key3;Steckertypen4;Nennleistung Stecker4;EVSE-ID4;Public Key4;Steckertypen5;Nennleistung Stecker5;EVSE-ID5;Public Key5;Steckertypen6;Nennleistung Stecker6;EVSE-ID6;Public Key6
+1158224;EnBW mobility+ AG und Co.KG;EnBW Test;In Betrieb;Schnellladeeinrichtung;2;200;09.06.2026;Hauptstraße;91;;73340;Amstetten;Landkreis Alb-Donau-Kreis;Baden-Württemberg;48,578533;9,87484;Teststandort;Keine Beschränkung;"Onlinezahlungsverfahren;RFID-Karte";247;;;DC Fahrzeugkupplung Typ Combo 2 (CCS);100;DE*EBW*E912316*1;PUBLIC1;DC Fahrzeugkupplung Typ Combo 2 (CCS);100;;PUBLIC2;;;;;;;;;;;;;;;;
+2000001;Stadtwerke Test;;In Wartung;Normalladeeinrichtung;1;22;01.01.2024;Testweg;2;Parkdeck;10115;Berlin;Berlin;Berlin;52,52;13,405;;;;Keine Angabe;;;AC Typ 2 Steckdose;22;;;;;;;;;;;;;;;;;;;;;;

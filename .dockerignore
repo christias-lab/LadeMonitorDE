@@ -1,0 +1,9 @@
+.git
+.dart_tool
+.env
+.pytest_cache
+.ruff_cache
+**/__pycache__
+**/.dart_tool
+**/build
+apps/mobile/.idea

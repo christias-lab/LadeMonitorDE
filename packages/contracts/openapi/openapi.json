@@ -1,0 +1,1370 @@
+{
+  "components": {
+    "schemas": {
+      "AlternativeSite": {
+        "properties": {
+          "distance_km_straight_line": {
+            "title": "Distance Km Straight Line",
+            "type": "number"
+          },
+          "max_power_kw": {
+            "title": "Max Power Kw",
+            "type": "number"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "reliability_score": {
+            "title": "Reliability Score",
+            "type": "number"
+          },
+          "site_id": {
+            "format": "uuid",
+            "title": "Site Id",
+            "type": "string"
+          }
+        },
+        "required": [
+          "site_id",
+          "name",
+          "distance_km_straight_line",
+          "max_power_kw",
+          "reliability_score"
+        ],
+        "title": "AlternativeSite",
+        "type": "object"
+      },
+      "ConnectorDetail": {
+        "properties": {
+          "connector_id": {
+            "format": "uuid",
+            "title": "Connector Id",
+            "type": "string"
+          },
+          "connector_type": {
+            "title": "Connector Type",
+            "type": "string"
+          },
+          "current_type": {
+            "title": "Current Type",
+            "type": "string"
+          },
+          "data_age_seconds": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Data Age Seconds"
+          },
+          "effective_state": {
+            "title": "Effective State",
+            "type": "string"
+          },
+          "evse_external_id": {
+            "title": "Evse External Id",
+            "type": "string"
+          },
+          "external_id": {
+            "title": "External Id",
+            "type": "string"
+          },
+          "ingested_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Ingested At"
+          },
+          "max_power_kw": {
+            "title": "Max Power Kw",
+            "type": "number"
+          },
+          "physical_state": {
+            "title": "Physical State",
+            "type": "string"
+          },
+          "price_eur_per_kwh": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Price Eur Per Kwh"
+          },
+          "source_observed_at": {
+            "anyOf": [
+              {
+                "format": "date-time",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Source Observed At"
+          }
+        },
+        "required": [
+          "connector_id",
+          "external_id",
+          "evse_external_id",
+          "connector_type",
+          "max_power_kw",
+          "current_type",
+          "physical_state",
+          "effective_state",
+          "source_observed_at",
+          "ingested_at",
+          "data_age_seconds",
+          "price_eur_per_kwh"
+        ],
+        "title": "ConnectorDetail",
+        "type": "object"
+      },
+      "Coverage": {
+        "properties": {
+          "fresh_connectors": {
+            "title": "Fresh Connectors",
+            "type": "integer"
+          },
+          "inventory_connectors": {
+            "title": "Inventory Connectors",
+            "type": "integer"
+          },
+          "live_coverage": {
+            "title": "Live Coverage",
+            "type": "number"
+          },
+          "reported_connectors": {
+            "title": "Reported Connectors",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "inventory_connectors",
+          "reported_connectors",
+          "fresh_connectors",
+          "live_coverage"
+        ],
+        "title": "Coverage",
+        "type": "object"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "title": "Detail",
+            "type": "array"
+          }
+        },
+        "title": "HTTPValidationError",
+        "type": "object"
+      },
+      "HistoryPoint": {
+        "properties": {
+          "bucket_start": {
+            "format": "date-time",
+            "title": "Bucket Start",
+            "type": "string"
+          },
+          "observable_connectors": {
+            "title": "Observable Connectors",
+            "type": "integer"
+          },
+          "states": {
+            "$ref": "#/components/schemas/StateCounts"
+          },
+          "utilization": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Utilization"
+          }
+        },
+        "required": [
+          "bucket_start",
+          "states",
+          "utilization",
+          "observable_connectors"
+        ],
+        "title": "HistoryPoint",
+        "type": "object"
+      },
+      "MapFeature": {
+        "properties": {
+          "bundesland": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Bundesland"
+          },
+          "confidence": {
+            "title": "Confidence",
+            "type": "number"
+          },
+          "connector_count": {
+            "title": "Connector Count",
+            "type": "integer"
+          },
+          "id": {
+            "title": "Id",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "cluster",
+              "site"
+            ],
+            "title": "Kind",
+            "type": "string"
+          },
+          "latitude": {
+            "title": "Latitude",
+            "type": "number"
+          },
+          "longitude": {
+            "title": "Longitude",
+            "type": "number"
+          },
+          "max_power_kw": {
+            "title": "Max Power Kw",
+            "type": "number"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "new_serious_outage": {
+            "title": "New Serious Outage",
+            "type": "boolean"
+          },
+          "offline_share": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Offline Share"
+          },
+          "site_count": {
+            "title": "Site Count",
+            "type": "integer"
+          },
+          "site_id": {
+            "anyOf": [
+              {
+                "format": "uuid",
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Site Id"
+          },
+          "states": {
+            "$ref": "#/components/schemas/StateCounts"
+          },
+          "utilization": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Utilization"
+          }
+        },
+        "required": [
+          "kind",
+          "id",
+          "name",
+          "bundesland",
+          "latitude",
+          "longitude",
+          "site_count",
+          "connector_count",
+          "states",
+          "utilization",
+          "offline_share",
+          "confidence",
+          "max_power_kw",
+          "new_serious_outage"
+        ],
+        "title": "MapFeature",
+        "type": "object"
+      },
+      "MapResponse": {
+        "properties": {
+          "bbox": {
+            "items": {
+              "type": "number"
+            },
+            "maxItems": 4,
+            "minItems": 4,
+            "title": "Bbox",
+            "type": "array"
+          },
+          "clustered": {
+            "title": "Clustered",
+            "type": "boolean"
+          },
+          "data_mode": {
+            "enum": [
+              "synthetic_demo",
+              "live_partial",
+              "live_verified"
+            ],
+            "title": "Data Mode",
+            "type": "string"
+          },
+          "feature_limit": {
+            "title": "Feature Limit",
+            "type": "integer"
+          },
+          "features": {
+            "items": {
+              "$ref": "#/components/schemas/MapFeature"
+            },
+            "title": "Features",
+            "type": "array"
+          },
+          "requested_at": {
+            "format": "date-time",
+            "title": "Requested At",
+            "type": "string"
+          },
+          "synthetic_notice": {
+            "title": "Synthetic Notice",
+            "type": "string"
+          },
+          "truncated": {
+            "title": "Truncated",
+            "type": "boolean"
+          },
+          "zoom": {
+            "title": "Zoom",
+            "type": "number"
+          }
+        },
+        "required": [
+          "data_mode",
+          "synthetic_notice",
+          "requested_at",
+          "bbox",
+          "zoom",
+          "clustered",
+          "truncated",
+          "feature_limit",
+          "features"
+        ],
+        "title": "MapResponse",
+        "type": "object"
+      },
+      "MetadataResponse": {
+        "properties": {
+          "api_version": {
+            "title": "Api Version",
+            "type": "string"
+          },
+          "data_mode": {
+            "enum": [
+              "synthetic_demo",
+              "live_partial",
+              "live_verified"
+            ],
+            "title": "Data Mode",
+            "type": "string"
+          },
+          "map_style_url": {
+            "title": "Map Style Url",
+            "type": "string"
+          },
+          "methodology_url": {
+            "title": "Methodology Url",
+            "type": "string"
+          },
+          "product": {
+            "title": "Product",
+            "type": "string"
+          },
+          "reference_time": {
+            "format": "date-time",
+            "title": "Reference Time",
+            "type": "string"
+          },
+          "synthetic_notice": {
+            "title": "Synthetic Notice",
+            "type": "string"
+          },
+          "tagline": {
+            "title": "Tagline",
+            "type": "string"
+          }
+        },
+        "required": [
+          "product",
+          "tagline",
+          "api_version",
+          "data_mode",
+          "synthetic_notice",
+          "reference_time",
+          "map_style_url",
+          "methodology_url"
+        ],
+        "title": "MetadataResponse",
+        "type": "object"
+      },
+      "PressureComponents": {
+        "properties": {
+          "alternatives_gap": {
+            "title": "Alternatives Gap",
+            "type": "number"
+          },
+          "confidence": {
+            "title": "Confidence",
+            "type": "number"
+          },
+          "deviation": {
+            "title": "Deviation",
+            "type": "number"
+          },
+          "offline_share": {
+            "title": "Offline Share",
+            "type": "number"
+          },
+          "raw_pressure": {
+            "title": "Raw Pressure",
+            "type": "number"
+          },
+          "score": {
+            "title": "Score",
+            "type": "integer"
+          },
+          "sufficient_confidence": {
+            "title": "Sufficient Confidence",
+            "type": "boolean"
+          },
+          "utilization": {
+            "title": "Utilization",
+            "type": "number"
+          },
+          "weights": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "title": "Weights",
+            "type": "object"
+          }
+        },
+        "required": [
+          "utilization",
+          "offline_share",
+          "deviation",
+          "alternatives_gap",
+          "confidence",
+          "raw_pressure",
+          "score",
+          "sufficient_confidence",
+          "weights"
+        ],
+        "title": "PressureComponents",
+        "type": "object"
+      },
+      "PulseResponse": {
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "integer"
+          },
+          "bucket_start": {
+            "format": "date-time",
+            "title": "Bucket Start",
+            "type": "string"
+          },
+          "coverage": {
+            "$ref": "#/components/schemas/Coverage"
+          },
+          "data_mode": {
+            "enum": [
+              "synthetic_demo",
+              "live_partial",
+              "live_verified"
+            ],
+            "title": "Data Mode",
+            "type": "string"
+          },
+          "generated_at": {
+            "format": "date-time",
+            "title": "Generated At",
+            "type": "string"
+          },
+          "hpc_available": {
+            "title": "Hpc Available",
+            "type": "integer"
+          },
+          "in_use": {
+            "title": "In Use",
+            "type": "integer"
+          },
+          "normal_utilization": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Normal Utilization"
+          },
+          "out_of_service": {
+            "title": "Out Of Service",
+            "type": "integer"
+          },
+          "pressure": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PressureComponents"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "recovered_last_hour": {
+            "title": "Recovered Last Hour",
+            "type": "integer"
+          },
+          "serious_incidents": {
+            "title": "Serious Incidents",
+            "type": "integer"
+          },
+          "source_observed_at": {
+            "format": "date-time",
+            "title": "Source Observed At",
+            "type": "string"
+          },
+          "stale_unknown": {
+            "title": "Stale Unknown",
+            "type": "integer"
+          },
+          "synthetic_notice": {
+            "title": "Synthetic Notice",
+            "type": "string"
+          },
+          "utilization": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Utilization"
+          },
+          "utilization_deviation": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Utilization Deviation"
+          }
+        },
+        "required": [
+          "data_mode",
+          "synthetic_notice",
+          "bucket_start",
+          "source_observed_at",
+          "generated_at",
+          "available",
+          "in_use",
+          "out_of_service",
+          "stale_unknown",
+          "hpc_available",
+          "utilization",
+          "normal_utilization",
+          "utilization_deviation",
+          "coverage",
+          "pressure",
+          "serious_incidents",
+          "recovered_last_hour"
+        ],
+        "title": "PulseResponse",
+        "type": "object"
+      },
+      "ReliabilitySummary": {
+        "properties": {
+          "median_outage_minutes": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Median Outage Minutes"
+          },
+          "mttr_minutes": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Mttr Minutes"
+          },
+          "observable_share": {
+            "title": "Observable Share",
+            "type": "number"
+          },
+          "outage_count": {
+            "title": "Outage Count",
+            "type": "integer"
+          },
+          "sample_size": {
+            "title": "Sample Size",
+            "type": "integer"
+          },
+          "uptime": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Uptime"
+          },
+          "window_days": {
+            "title": "Window Days",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "window_days",
+          "uptime",
+          "observable_share",
+          "outage_count",
+          "median_outage_minutes",
+          "mttr_minutes",
+          "sample_size"
+        ],
+        "title": "ReliabilitySummary",
+        "type": "object"
+      },
+      "StateCounts": {
+        "properties": {
+          "available": {
+            "title": "Available",
+            "type": "integer"
+          },
+          "in_use": {
+            "title": "In Use",
+            "type": "integer"
+          },
+          "out_of_service": {
+            "title": "Out Of Service",
+            "type": "integer"
+          },
+          "stale_unknown": {
+            "title": "Stale Unknown",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "available",
+          "in_use",
+          "out_of_service",
+          "stale_unknown"
+        ],
+        "title": "StateCounts",
+        "type": "object"
+      },
+      "StationDetailResponse": {
+        "properties": {
+          "address": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Address"
+          },
+          "attribution": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Attribution"
+          },
+          "bundesland": {
+            "title": "Bundesland",
+            "type": "string"
+          },
+          "connectors": {
+            "items": {
+              "$ref": "#/components/schemas/ConnectorDetail"
+            },
+            "title": "Connectors",
+            "type": "array"
+          },
+          "corridor": {
+            "title": "Corridor",
+            "type": "boolean"
+          },
+          "data_mode": {
+            "enum": [
+              "synthetic_demo",
+              "live_partial",
+              "live_verified"
+            ],
+            "title": "Data Mode",
+            "type": "string"
+          },
+          "external_id": {
+            "title": "External Id",
+            "type": "string"
+          },
+          "latitude": {
+            "title": "Latitude",
+            "type": "number"
+          },
+          "licence_code": {
+            "title": "Licence Code",
+            "type": "string"
+          },
+          "licence_url": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Licence Url"
+          },
+          "longitude": {
+            "title": "Longitude",
+            "type": "number"
+          },
+          "name": {
+            "title": "Name",
+            "type": "string"
+          },
+          "nearby_alternatives": {
+            "items": {
+              "$ref": "#/components/schemas/AlternativeSite"
+            },
+            "title": "Nearby Alternatives",
+            "type": "array"
+          },
+          "operator_name": {
+            "title": "Operator Name",
+            "type": "string"
+          },
+          "publication_name": {
+            "title": "Publication Name",
+            "type": "string"
+          },
+          "reliability": {
+            "$ref": "#/components/schemas/ReliabilitySummary"
+          },
+          "requested_at": {
+            "format": "date-time",
+            "title": "Requested At",
+            "type": "string"
+          },
+          "site_id": {
+            "format": "uuid",
+            "title": "Site Id",
+            "type": "string"
+          },
+          "source_name": {
+            "title": "Source Name",
+            "type": "string"
+          },
+          "synthetic_notice": {
+            "title": "Synthetic Notice",
+            "type": "string"
+          }
+        },
+        "required": [
+          "data_mode",
+          "synthetic_notice",
+          "site_id",
+          "external_id",
+          "name",
+          "address",
+          "bundesland",
+          "latitude",
+          "longitude",
+          "corridor",
+          "operator_name",
+          "requested_at",
+          "connectors",
+          "reliability",
+          "nearby_alternatives",
+          "source_name",
+          "publication_name",
+          "licence_code",
+          "licence_url",
+          "attribution"
+        ],
+        "title": "StationDetailResponse",
+        "type": "object"
+      },
+      "StationHistoryResponse": {
+        "properties": {
+          "bucket_minutes": {
+            "title": "Bucket Minutes",
+            "type": "integer"
+          },
+          "data_mode": {
+            "enum": [
+              "synthetic_demo",
+              "live_partial",
+              "live_verified"
+            ],
+            "title": "Data Mode",
+            "type": "string"
+          },
+          "from_time": {
+            "format": "date-time",
+            "title": "From Time",
+            "type": "string"
+          },
+          "points": {
+            "items": {
+              "$ref": "#/components/schemas/HistoryPoint"
+            },
+            "title": "Points",
+            "type": "array"
+          },
+          "site_id": {
+            "format": "uuid",
+            "title": "Site Id",
+            "type": "string"
+          },
+          "synthetic_notice": {
+            "title": "Synthetic Notice",
+            "type": "string"
+          },
+          "to_time": {
+            "format": "date-time",
+            "title": "To Time",
+            "type": "string"
+          }
+        },
+        "required": [
+          "data_mode",
+          "synthetic_notice",
+          "site_id",
+          "from_time",
+          "to_time",
+          "bucket_minutes",
+          "points"
+        ],
+        "title": "StationHistoryResponse",
+        "type": "object"
+      },
+      "ValidationError": {
+        "properties": {
+          "ctx": {
+            "title": "Context",
+            "type": "object"
+          },
+          "input": {
+            "title": "Input"
+          },
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "title": "Location",
+            "type": "array"
+          },
+          "msg": {
+            "title": "Message",
+            "type": "string"
+          },
+          "type": {
+            "title": "Error Type",
+            "type": "string"
+          }
+        },
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError",
+        "type": "object"
+      }
+    }
+  },
+  "info": {
+    "description": "Normalized observability APIs for public EV charging infrastructure.",
+    "title": "LadePulse DE API",
+    "version": "0.1.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "health_health_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Health Health Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Health"
+      }
+    },
+    "/ready": {
+      "get": {
+        "operationId": "ready_ready_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "additionalProperties": {
+                    "type": "string"
+                  },
+                  "title": "Response Ready Ready Get",
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Ready"
+      }
+    },
+    "/v1/map": {
+      "get": {
+        "operationId": "map_features_v1_map_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "west",
+            "required": true,
+            "schema": {
+              "maximum": 180,
+              "minimum": -180,
+              "title": "West",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "south",
+            "required": true,
+            "schema": {
+              "maximum": 90,
+              "minimum": -90,
+              "title": "South",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "east",
+            "required": true,
+            "schema": {
+              "maximum": 180,
+              "minimum": -180,
+              "title": "East",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "north",
+            "required": true,
+            "schema": {
+              "maximum": 90,
+              "minimum": -90,
+              "title": "North",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "zoom",
+            "required": true,
+            "schema": {
+              "maximum": 18,
+              "minimum": 3,
+              "title": "Zoom",
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "At"
+            }
+          },
+          {
+            "in": "query",
+            "name": "bundesland",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Bundesland"
+            }
+          },
+          {
+            "in": "query",
+            "name": "power_class",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "pattern": "^(ac|dc|hpc)$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Power Class"
+            }
+          },
+          {
+            "in": "query",
+            "name": "available_now",
+            "required": false,
+            "schema": {
+              "default": false,
+              "title": "Available Now",
+              "type": "boolean"
+            }
+          },
+          {
+            "in": "query",
+            "name": "freshness",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "pattern": "^(fresh|stale)$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "Freshness"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MapResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Map Features"
+      }
+    },
+    "/v1/meta": {
+      "get": {
+        "operationId": "metadata_v1_meta_get",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetadataResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          }
+        },
+        "summary": "Metadata"
+      }
+    },
+    "/v1/pulse": {
+      "get": {
+        "operationId": "pulse_v1_pulse_get",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "At"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PulseResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Pulse"
+      }
+    },
+    "/v1/stations/{site_id}": {
+      "get": {
+        "operationId": "station_detail_v1_stations__site_id__get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "site_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Site Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "at",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "At"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StationDetailResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Station Detail"
+      }
+    },
+    "/v1/stations/{site_id}/history": {
+      "get": {
+        "operationId": "station_history_v1_stations__site_id__history_get",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "site_id",
+            "required": true,
+            "schema": {
+              "format": "uuid",
+              "title": "Site Id",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "from",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "From"
+            }
+          },
+          {
+            "in": "query",
+            "name": "to",
+            "required": false,
+            "schema": {
+              "anyOf": [
+                {
+                  "format": "date-time",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "title": "To"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StationHistoryResponse"
+                }
+              }
+            },
+            "description": "Successful Response"
+          },
+          "422": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            },
+            "description": "Validation Error"
+          }
+        },
+        "summary": "Station History"
+      }
+    }
+  }
+}
